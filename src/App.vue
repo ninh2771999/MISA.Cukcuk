@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div :class="{'m-container':true , 'm-tiny': isHiddenSidebar}">
+    
+    <TheMenu/>
+    <TheContent/>
+    
+  </div>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TheMenu from './components/layout/TheMenu.vue' 
+import TheContent from './components/layout/TheContent.vue' 
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+   TheMenu,
+   TheContent,
+  },
+   data() {
+    return {
+      isHiddenSidebar: false,
+    };
+  },
 }
 </script>
-
+  
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url('./style/main.css');
+@import url('./style/base/button.css');
+@import url('./style/base/combobox.css');
 </style>
